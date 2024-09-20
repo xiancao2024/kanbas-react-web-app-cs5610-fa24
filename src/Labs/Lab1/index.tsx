@@ -25,6 +25,41 @@ export default function Lab1() {
             <li>Serve and enjoy!</li>
           </ol>
         </div>
+         
+        <div id="wd-lists">
+  
+  <p>My favorite recipe:</p>
+  <ol id="wd-your-favorite-recipe">
+  <li>1 3⁄4 cups all-purpose flour</li>
+<li>2 tablespoons granulated sugar</li>
+<li>1 tablespoon baking powder</li>
+<li>1⁄2 teaspoon salt</li>
+<li>2 eggs</li>
+<li>3 tablespoons vegetable oil or 3 tablespoons canola oil</li>
+<li>1 1⁄2 cups milk</li>
+<li>1⁄2 teaspoon vanilla extract</li>
+
+  </ol>
+</div>
+
+<h5>Unordered List Tag</h5>
+<p>My favorite books (in no particular order)</p>
+<ul id="wd-my-books">
+  <li>Dune</li>
+  <li>Lord of the Rings</li>
+  <li>Ender's Game</li>
+  <li>Red Mars</li>
+  <li>The Forever War</li>
+</ul>
+
+<p>Your favorite books (in no particular order)</p>
+<ul id="wd-your-books">
+  <li>The Catcher in the Rye</li>
+  <li>To Kill a Mockingbird</li>
+  <li>1984</li>
+  <li>Brave New World</li>
+  <li>The Great Gatsby</li>
+</ul>
         <div id="wd-tables">
           <h4>Table Tag</h4>
           <table border={1} width="100%">	{/* table, border, width */}
