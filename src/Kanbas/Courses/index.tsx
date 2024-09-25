@@ -4,6 +4,11 @@ import { Navigate, Route, Routes } from "react-router";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
+import Grades from "./Grades";
+import People from "./People";
+import Quizzes from "./Quizzes";
+import Piazza from "./Piazza";
+import Zoom from "./Zoom";
 
 export default function Courses() {
     return (
@@ -19,7 +24,12 @@ export default function Courses() {
               <Route path="Modules" element={<Modules />} />
               <Route path="Assignments" element= {<Assignments />} />
               <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-              <Route path="People" element={<h2>People</h2>} />
+              <Route path="People" element={<People />} />
+              <Route path="Piazza" element={<Piazza />} />
+              <Route path="Zoom" element={<Zoom />} />
+              <Route path="Quizzes" element={< Quizzes/>} />
+              <Route path="Grades" element={<Grades />} /> 
+
             </Routes>
           </td>
         </tr>
