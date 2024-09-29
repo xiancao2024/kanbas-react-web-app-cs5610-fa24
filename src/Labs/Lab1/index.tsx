@@ -301,6 +301,14 @@ export default function Lab1() {
           </a>
           to get dummy text
           <br />
+          Please
+          <a id="wd-github" href="https://github.com/xiancao2024">
+            click here
+          </a> 
+          link to my code repository on GitHub
+          <br />
+
+
         </form>
       </div>
     </div>

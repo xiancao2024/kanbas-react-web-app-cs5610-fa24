@@ -12,7 +12,7 @@ function App() {
         <Routes>
           {/* Redirect "/" to "/LandingPage" */}
           <Route path="/" element={<Navigate to="/LandingPage" />} />
-          
+          <Route path="/Kanbas" element={<Navigate to="/Kanbas/Dashboard" replace />} />
           {/* LandingPage Route */}
           <Route path="/LandingPage" element={<LandingPage />} />
           

@@ -1,4 +1,4 @@
-
+import "./index.css";
 export default function ForegroundColors() {
   return (
     <div id="wd-css-colors">
