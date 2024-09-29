@@ -5,11 +5,14 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
-import People from "./People";
 import Quizzes from "./Quizzes";
 import Piazza from "./Piazza";
 import Zoom from "./Zoom";
+import People from "./People";
 import { FaAlignJustify } from "react-icons/fa";
+import PeopleTable from "./People/Table";
+
+
 
 export default function Courses() {
   return (
@@ -30,11 +33,12 @@ export default function Courses() {
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-            <Route path="People" element={<People />} />
             <Route path="Piazza" element={<Piazza />} />
             <Route path="Zoom" element={<Zoom />} />
             <Route path="Quizzes" element={<Quizzes />} />
             <Route path="Grades" element={<Grades />} />
+            <Route path="People" element={<PeopleTable />} />
+            <Route path="People/:pid" element={<People />} />
           </Routes>
         </div>
       </div>

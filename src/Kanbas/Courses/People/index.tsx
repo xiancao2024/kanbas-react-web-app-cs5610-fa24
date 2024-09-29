@@ -1,8 +1,9 @@
-export default function  People() {
+export default function   People() {
     return (
-        <div id="wd-people">
-            <h2>People</h2>
-            <p>People are not available for this course.</p>
-        </div>
+      <div id="wd-piazza">
+        <h2>People</h2>
+        <p>Piazza is not available for this course.</p>
+      
+      </div>
     );
   }

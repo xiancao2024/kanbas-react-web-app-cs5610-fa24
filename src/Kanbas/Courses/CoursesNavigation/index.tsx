@@ -101,6 +101,24 @@ export default function CoursesNavigation() {
       >
         Grades
       </NavLink>
+
+      <NavLink
+        to="People"
+        id="wd-course-people-link"
+        className="list-group-item border border-0"
+        style={({ isActive }) => ({
+          color: isActive ? "black" : "red",
+          fontWeight: isActive ? "bold" : "normal",
+          borderLeft: isActive ? "4px solid black" : "none",
+          paddingLeft: "10px",
+          backgroundColor: "transparent" // No blue background
+        })}
+      >
+        People
+        </NavLink>
+
+      
+
     </div>
   );
 }

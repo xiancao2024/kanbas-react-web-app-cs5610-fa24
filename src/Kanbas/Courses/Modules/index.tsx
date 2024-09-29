@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LessonControlButtons from "./LessonControlButtons";
 import ModuleControlButtons from "./ModuleControlButtons";
 import { BsGripVertical } from "react-icons/bs";
+import ModulesControls from "./ModulesControls";
 
 export default function Modules() {
   // State to manage the collapse of lessons
@@ -115,6 +116,12 @@ export default function Modules() {
             Publish All
           </option>
           <option value="PUBLISH1">Publish selected</option>
+          <option id="wd-unpublish-all-modules-and-items" value="UNPUBLISHALL">
+            Unpublish all modules and items
+          </option>
+          <option id="wd-unpublish-modules-only" value="UNPUBLISHMODULES">
+            Unpublish modules only
+          </option>
         </select>
         <button
           id="wd-add-assignment"

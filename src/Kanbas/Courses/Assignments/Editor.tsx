@@ -1,126 +1,106 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function AssignmentEditor() {
-    return (
-        <div id="wd-assignments-editor">
-            <label htmlFor="wd-name">Assignment Name</label>
-            <input id="wd-name" value="A1 - ENV + HTML" />
-            <br /><br />
-            <textarea id="wd-description" cols={60} rows={8}>
-                The assignment is available online Submit a link to the landing page of your Web application running on Netlify. The landing page should include the following: Your full name and section Links to each of the lab assignments Link to the Kanbas application Links to all relevant source code repositories The Kanbas application should include a link to navigate back to the landing page.
-            </textarea>
-            <br /><br />
-            <table>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-points">Points</label>
-                    </td>
-                    <td>
-                        <input id="wd-points" value={100} />
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-group">Assignment Group</label>
-                    </td>
-                    <td>
-                        <select id="wd-group">
-                            <option value="1">ASSIGNMENTS</option>
-                            <option value="2">GROUP 1</option>
-                            <option value="3">GROUP 2</option>
-                            <option value="3">GROUP 3</option>
-                        </select>
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-display-grade-as">Display Grade As</label>
-                    </td>
-                    <td>
-                        <select id="wd-display-grade-as">
-                            <option value="1">Percentage</option>
-                            <option value="2">GPA</option>
-                            <option value="3">Grade</option>
-                        </select>
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-submission-type">Submission Type</label>
-                    </td>
-                    <td>
-                        <select id="wd-submission-type">
-                            <option value="1">Online</option>
-                            <option value="2">File</option>
-                            <option value="3">Text</option>
-                        </select>
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-online-entry-options">Online Entry Options</label>
-                    </td>
-                    <td>
-                        <input type="checkbox" id="wd-text-entry" name="wd-text-entry" value="1" />
-                        <label htmlFor="wd-text-entry">Text Entry</label><br />
+import { FaSearch, FaPlus } from 'react-icons/fa';
 
-                        <input type="checkbox" id="wd-website-url" name="wd-website-url" value="2" />
-                        <label htmlFor="wd-website-url">Website URL</label><br />
 
-                        <input type="checkbox" id="wd-media-recordings" name="wd-media-recordings" value="3" />
-                        <label htmlFor="wd-media-recordings">Media Recordings</label><br />
+export default function Assignments() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [assignments, setAssignments] = useState([
+    {
+      title: "A1 - ENV + HTML",
+      available: "Not available until May 6 at 12:00am",
+      due: "Due May 13 at 11:59pm",
+      points: "100 pts"
+    },
+    {
+      title: "A2 - CSS + BOOTSTRAP",
+      available: "Not available until May 13 at 12:00am",
+      due: "Due May 20 at 11:59pm",
+      points: "100 pts"
+    },
+    {
+      title: "A3 - JAVASCRIPT + REACT",
+      available: "Not available until May 20 at 12:00am",
+      due: "Due May 27 at 11:59pm",
+      points: "100 pts"
+    }
+  ]);
 
-                        <input type="checkbox" id="wd-student-annotation" name="wd-student-annotation" value="4" />
-                        <label htmlFor="wd-student-annotation">Student Annotation</label><br />
+  const [isAddAssignmentActive, setIsAddAssignmentActive] = useState(false);
 
-                        <input type="checkbox" id="wd-file-upload" name="wd-file-upload" value="5" />
-                        <label htmlFor="wd-file-upload">File Upload</label><br />
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-assign-to">Assign To</label>
-                    </td>
-                    <td>
-                        <input id="wd-assign-to" type="text" placeholder="Everyone" />
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-due-date">Due Date</label>
-                    </td>
-                    <td>
-                        <input id="wd-due-date" type="date" value="2024-05-13" />
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-available-from">Available From</label>
-                    </td>
-                    <td>
-                        <input id="wd-available-from" type="date" value="2024-05-06" />
-                    </td>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-available-until">Until</label>
-                    </td>
-                    <td>
-                        <input id="wd-available-until" type="date" value="2024-05-06" />
-                    </td>
-                </tr>
-                {/* Complete on your own */}
-            </table>
-            <div style={{ textAlign: 'right', padding: '20px' }}>
-                <hr />
-                <button>Cancel</button>
-                <button>Save</button>
+  const toggleCollapse = () => {
+    setIsCollapsed((prevState) => !prevState);
+  };
+
+  const toggleAddAssignment = () => {
+    setIsAddAssignmentActive((prevState) => !prevState);
+    if (!isAddAssignmentActive) {
+      const newAssignment = {
+        title: `New Assignment ${assignments.length + 1}`,
+        available: "Not available yet",
+        due: "Due date not set",
+        points: "TBD"
+      };
+      setAssignments((prevAssignments) => [...prevAssignments, newAssignment]);
+    }
+  };
+
+  return (
+    <div id="wd-assignments">
+      <h3 id="wd-assignments-title">
+        ASSIGNMENTS 40% of Total
+        <button onClick={toggleAddAssignment}>
+          <FaPlus />
+        </button>
+      </h3>
+
+      {/* Search Bar */}
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+        <FaSearch style={{ marginRight: '10px', color: '#ccc' }} />
+        <input id="wd-search-assignment" placeholder="Search for Assignments" />
+      </div>
+
+      <button
+        id="wd-collapse-all"
+        className={`btn ${isCollapsed ? "btn-danger" : "btn-secondary"} me-2`}
+        onClick={toggleCollapse}
+      >
+        {isCollapsed ? "Expand All" : "Collapse All"}
+      </button>
+
+      <button
+        id="wd-add-assignment"
+        className={`btn ${isAddAssignmentActive ? "btn-danger" : "btn-secondary"}`}
+        onClick={toggleAddAssignment}
+      >
+        + Assignment
+      </button>
+
+      {/* Assignments List */}
+      <ul id="wd-assignment-list" className="list-group mt-4">
+        {assignments.map((assignment, index) => (
+          <li
+            key={index}
+            className="wd-assignment-list-item list-group-item p-0 mb-4 fs-5 border-gray"
+          >
+            <div className="wd-title p-3 ps-2 bg-secondary text-white">
+              {assignment.title}
             </div>
-        </div>
-    );
+            <ul className={`wd-assignment-details list-group rounded-0 ${isCollapsed ? 'collapse' : ''}`}>
+              <li className="list-group-item">
+                <strong>{assignment.available}</strong>
+              </li>
+              <li className="list-group-item">
+                <strong>{assignment.due}</strong>
+              </li>
+              <li className="list-group-item">
+                <strong>{assignment.points}</strong>
+              </li>
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
