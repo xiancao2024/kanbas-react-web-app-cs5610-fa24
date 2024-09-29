@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './LandingPage.css'; // Importing the CSS file
 
 export default function LandingPage() {
     return (
         <div id="landing-page">
-
             {/* Display your name and course section */}
             <h1>Xian Cao</h1>
             <h3>Section: CS5610-FALL24</h3>
@@ -12,10 +12,9 @@ export default function LandingPage() {
             {/* Links to Lab Assignments */}
             <h2>Lab Assignments</h2>
             <ul>
-            <li><Link to="/Labs/Lab1" target="_blank">Lab </Link></li>
                 <li><Link to="/Labs/Lab1" target="_blank">Lab 1</Link></li>
-                <li><Link to="/Labs/Lab1" target="_blank">Lab 2</Link></li>
-                <li><Link to="/Labs/Lab1" target="_blank">Lab 3</Link></li>
+                <li><Link to="/Labs/Lab2" target="_blank">Lab 2</Link></li>
+                <li><Link to="/Labs/Lab3" target="_blank">Lab 3</Link></li>
             </ul>
 
             {/* Kanbas Application */}
@@ -32,5 +31,3 @@ export default function LandingPage() {
         </div>
     );
 }
-
-
