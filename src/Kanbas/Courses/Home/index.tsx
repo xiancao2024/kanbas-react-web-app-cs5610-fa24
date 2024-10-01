@@ -7,7 +7,7 @@ export default function Home() {
           <Modules />
         </div>
       
-        <div className="d-none d-md-block">
+        <div className="d-none d-md-block" style={{padding: '30px' }} >
           <CourseStatus />
         </div>
       </div>
