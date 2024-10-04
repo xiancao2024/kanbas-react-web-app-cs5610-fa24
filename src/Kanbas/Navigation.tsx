@@ -50,7 +50,7 @@ export default function KanbasNavigation() {
         </NavLink>
 
         <NavLink
-          to="/Kanbas/Courses"
+          to="/Kanbas/Courses/:cid/"
           id="wd-course-link"
           className={({ isActive }) =>
             `list-group-item text-center border-0 ${isActive ? 'bg-white text-danger' : 'bg-black text-white'}`

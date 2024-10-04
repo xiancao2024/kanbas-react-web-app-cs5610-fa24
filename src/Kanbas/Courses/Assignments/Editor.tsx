@@ -1,106 +1,224 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import { FaSearch, FaPlus } from 'react-icons/fa';
-
-
-export default function Assignments() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [assignments, setAssignments] = useState([
-    {
-      title: "A1 - ENV + HTML",
-      available: "Not available until May 6 at 12:00am",
-      due: "Due May 13 at 11:59pm",
-      points: "100 pts"
-    },
-    {
-      title: "A2 - CSS + BOOTSTRAP",
-      available: "Not available until May 13 at 12:00am",
-      due: "Due May 20 at 11:59pm",
-      points: "100 pts"
-    },
-    {
-      title: "A3 - JAVASCRIPT + REACT",
-      available: "Not available until May 20 at 12:00am",
-      due: "Due May 27 at 11:59pm",
-      points: "100 pts"
-    }
-  ]);
-
-  const [isAddAssignmentActive, setIsAddAssignmentActive] = useState(false);
-
-  const toggleCollapse = () => {
-    setIsCollapsed((prevState) => !prevState);
-  };
-
-  const toggleAddAssignment = () => {
-    setIsAddAssignmentActive((prevState) => !prevState);
-    if (!isAddAssignmentActive) {
-      const newAssignment = {
-        title: `New Assignment ${assignments.length + 1}`,
-        available: "Not available yet",
-        due: "Due date not set",
-        points: "TBD"
-      };
-      setAssignments((prevAssignments) => [...prevAssignments, newAssignment]);
-    }
-  };
-
+export default function AssignmentEditor() {
   return (
-    <div id="wd-assignments">
-      <h3 id="wd-assignments-title">
-        ASSIGNMENTS 40% of Total
-        <button onClick={toggleAddAssignment}>
-          <FaPlus />
-        </button>
-      </h3>
+    <div>
+      <div id="wd-assignments-editor" className="container">
+        <form>
+          <div className="mb-3">
+            <label htmlFor="wd-name" className="form-label">
+              Assignment Name
+            </label>
+            <input
+              id="wd-name"
+              className="form-control"
+              value="A1 - ENV + HTML"
+            />
+          </div>
 
-      {/* Search Bar */}
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-        <FaSearch style={{ marginRight: '10px', color: '#ccc' }} />
-        <input id="wd-search-assignment" placeholder="Search for Assignments" />
-      </div>
+          <div className="mb-3">
+            <label htmlFor="wd-description" className="form-label">
+              Description
+            </label>
+            <textarea id="wd-description" className="form-control" rows={6}>
+              The assignment is available online. Submit a link to the landing
+              page of your Web application running on Netlify. The landing page
+              should include the following: Your full name and section, links to
+              each of the lab assignments, link to the Kanbas application, links
+              to all relevant source code repositories. The Kanbas application
+              should include a link to navigate back to the landing page.
+            </textarea>
+          </div>
 
-      <button
-        id="wd-collapse-all"
-        className={`btn ${isCollapsed ? "btn-danger" : "btn-secondary"} me-2`}
-        onClick={toggleCollapse}
-      >
-        {isCollapsed ? "Expand All" : "Collapse All"}
-      </button>
-
-      <button
-        id="wd-add-assignment"
-        className={`btn ${isAddAssignmentActive ? "btn-danger" : "btn-secondary"}`}
-        onClick={toggleAddAssignment}
-      >
-        + Assignment
-      </button>
-
-      {/* Assignments List */}
-      <ul id="wd-assignment-list" className="list-group mt-4">
-        {assignments.map((assignment, index) => (
-          <li
-            key={index}
-            className="wd-assignment-list-item list-group-item p-0 mb-4 fs-5 border-gray"
-          >
-            <div className="wd-title p-3 ps-2 bg-secondary text-white">
-              {assignment.title}
+          <div className="row mb-3">
+            <label
+              htmlFor="wd-points"
+              className="col-sm-2 col-form-label text-end">
+              Points
+            </label>
+            <div className="col-sm-10">
+              <input id="wd-points" className="form-control" value={100} />
             </div>
-            <ul className={`wd-assignment-details list-group rounded-0 ${isCollapsed ? 'collapse' : ''}`}>
-              <li className="list-group-item">
-                <strong>{assignment.available}</strong>
-              </li>
-              <li className="list-group-item">
-                <strong>{assignment.due}</strong>
-              </li>
-              <li className="list-group-item">
-                <strong>{assignment.points}</strong>
-              </li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+          </div>
+
+          <div className="row mb-3">
+            <label
+              htmlFor="wd-group"
+              className="col-sm-2 col-form-label text-end">
+              Assignment Group
+            </label>
+            <div className="col-sm-10">
+              <select id="wd-group" className="form-select">
+                <option value="assignments">ASSIGNMENTS</option>
+                <option value="exams">Exams</option>
+                <option value="quizzes">Quizzes</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <label
+              htmlFor="wd-display-grade-as"
+              className="col-sm-2 col-form-label text-end">
+              Display Grade as
+            </label>
+            <div className="col-sm-10">
+              <select id="wd-display-grade-as" className="form-select">
+                <option value="percentage">Percentage</option>
+                <option value="points">Points</option>
+                <option value="letter-grade">Letter Grade</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <label
+              htmlFor="wd-submission-type"
+              className="col-sm-2 col-form-label text-end">
+              Submission Type
+            </label>
+
+            <div className="col-sm-10">
+              <div className="card">
+                <div className="card-body">
+                  <select id="wd-submission-type" className="form-select">
+                    <option value="online">Online</option>
+                    <option value="paper">Paper</option>
+                    <option value="external-tool">External Tool</option>
+                  </select>
+                  <br />
+                  <span className="d-block mb-2">
+                    <strong>Online Entry Options</strong>
+                  </span>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="wd-text-entry"
+                    />
+                    <label className="form-check-label" htmlFor="wd-text-entry">
+                      Text Entry
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="wd-website-url"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="wd-website-url">
+                      Website URL
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="wd-media-recordings"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="wd-media-recordings">
+                      Media Recordings
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="wd-student-annotation"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="wd-student-annotation">
+                      Student Annotation
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="wd-file-upload"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="wd-file-upload">
+                      File Uploads
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <label
+              htmlFor="wd-assign-to"
+              className="col-sm-2 col-form-label text-end">
+              Assign
+            </label>
+            <div className="col-sm-10">
+              <div className="card">
+                <div className="card-body">
+                  <span className="d-block mb-2">
+                    <strong>Assign to</strong>
+                  </span>
+                  <input
+                    id="wd-assign-to"
+                    className="form-control mb-3"
+                    value="Everyone"
+                  />
+                  <span className="d-block mb-2">
+                    <strong>Due</strong>
+                  </span>
+                  <input
+                    type="date"
+                    id="wd-due-date"
+                    className="form-control mb-3"
+                    value="2024-05-13"
+                  />
+
+                  <div className="row">
+                    <div className="col-sm-6">
+                      <span className="d-block mb-2">
+                        <strong>Available from</strong>
+                      </span>
+                      <input
+                        type="date"
+                        id="wd-available-from"
+                        className="form-control"
+                        value="2024-05-06"
+                      />
+                    </div>
+                    <div className="col-sm-6">
+                      <span className="d-block mb-2">
+                        <strong>Until</strong>
+                      </span>
+                      <input
+                        type="date"
+                        id="wd-available-until"
+                        className="form-control"
+                        value="2024-05-20"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div className="d-flex justify-content-end">
+            <button type="button" className="btn btn-secondary me-2">
+              Cancel
+            </button>
+            <button type="submit" className="btn btn-danger">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
