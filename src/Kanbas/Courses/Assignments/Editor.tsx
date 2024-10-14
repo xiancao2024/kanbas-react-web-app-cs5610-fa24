@@ -1,8 +1,21 @@
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import assignments from "../../Database/assignments.json"; // Import assignments from the Database
+
+
 export default function AssignmentEditor() {
+  const {cid, aid} = useParams();
+  console.log('Course ID:', cid, 'Assignment ID:', aid);
+  const assignment = assignments.find(a => a._id === aid);
+  console.log('Found assignment:', assignment);
+  if(!assignment) return <p>Assignment not found</p>;
+
+
   return (
     <div>
       <div id="wd-assignments-editor" className="container">
         <form>
+          {/* Form fields */}
           <div className="mb-3">
             <label htmlFor="wd-name" className="form-label">
               Assignment Name
@@ -29,9 +42,7 @@ export default function AssignmentEditor() {
           </div>
 
           <div className="row mb-3">
-            <label
-              htmlFor="wd-points"
-              className="col-sm-2 col-form-label text-end">
+            <label htmlFor="wd-points" className="col-sm-2 col-form-label text-end">
               Points
             </label>
             <div className="col-sm-10">
@@ -40,9 +51,7 @@ export default function AssignmentEditor() {
           </div>
 
           <div className="row mb-3">
-            <label
-              htmlFor="wd-group"
-              className="col-sm-2 col-form-label text-end">
+            <label htmlFor="wd-group" className="col-sm-2 col-form-label text-end">
               Assignment Group
             </label>
             <div className="col-sm-10">
@@ -104,9 +113,7 @@ export default function AssignmentEditor() {
                       type="checkbox"
                       id="wd-website-url"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="wd-website-url">
+                    <label className="form-check-label" htmlFor="wd-website-url">
                       Website URL
                     </label>
                   </div>
@@ -116,9 +123,7 @@ export default function AssignmentEditor() {
                       type="checkbox"
                       id="wd-media-recordings"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="wd-media-recordings">
+                    <label className="form-check-label" htmlFor="wd-media-recordings">
                       Media Recordings
                     </label>
                   </div>
@@ -128,9 +133,7 @@ export default function AssignmentEditor() {
                       type="checkbox"
                       id="wd-student-annotation"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="wd-student-annotation">
+                    <label className="form-check-label" htmlFor="wd-student-annotation">
                       Student Annotation
                     </label>
                   </div>
@@ -140,9 +143,7 @@ export default function AssignmentEditor() {
                       type="checkbox"
                       id="wd-file-upload"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="wd-file-upload">
+                    <label className="form-check-label" htmlFor="wd-file-upload">
                       File Uploads
                     </label>
                   </div>
@@ -209,16 +210,20 @@ export default function AssignmentEditor() {
 
           <hr />
 
-          <div className="d-flex justify-content-end">
-            <button type="button" className="btn btn-secondary me-2">
+          {/* Buttons */}
+          <div className="text-end mt-3">
+            {/* Cancel button using Link */}
+            <Link to={`/Kanbas/courses/${cid}/Assignments`} className="btn btn-secondary me-2">
               Cancel
-            </button>
-            <button type="submit" className="btn btn-danger">
+            </Link>
+            {/* Save button using Link */}
+            <Link to={`/Kanbas/courses/${cid}/Assignments`} className="btn btn-success">
               Save
-            </button>
+            </Link>
           </div>
         </form>
       </div>
     </div>
   );
 }
+
