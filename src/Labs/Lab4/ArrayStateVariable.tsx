@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap for styling
+import { useSelector } from "react-redux";
 
 export default function ArrayStateVariable() {
+  const { message } = useSelector((state: any) => state.helloReducer);
   const [array, setArray] = useState([1, 2, 3, 4, 5]);
 
   // Function to add a random element
@@ -17,6 +19,7 @@ export default function ArrayStateVariable() {
   return (
     <div id="wd-array-state-variables" className="container" style={{ maxWidth: '500px', paddingLeft: '0', marginLeft: '0' }}>
       <h2>Array State Variable</h2>
+      <h3> {message} </h3>
 
       {/* Add Element Button */}
       <button className="btn btn-success mb-3" onClick={addElement}>

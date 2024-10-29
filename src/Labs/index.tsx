@@ -4,8 +4,9 @@ import Lab3 from "./Lab3";
 import { Link, Routes, Route } from "react-router-dom";
 import TOC from "./TOC";
 import Lab4 from "./Lab4";
-import store from "./store";
+
 import { Provider } from "react-redux";
+import store from "./Lab4/store";
 
 
 export default function Labs() {

@@ -9,6 +9,8 @@ import PassingDataOnEvent from "./PassingDataOnEvent";
 import ObjectStateVariable from "./ObjectStateVariable";    
 import ArrayStateVariable from "./ArrayStateVariable";
 import ParentStateComponent from "./ParentStateComponent";
+import ReduxExamples from "./ReduxExamples";
+
 
 
 
@@ -31,7 +33,7 @@ export default function Lab4() {
     <ObjectStateVariable />
     <ArrayStateVariable />
     <ParentStateComponent />
-
+    <ReduxExamples />
 
   </div>
   );
