@@ -122,7 +122,7 @@ export default function Dashboard({
                         className="wd-dashboard-course-link text-decoration-none text-dark"
                       >
                         <img
-                          src={`${course.image}`}
+                          src={`/images/${course._id}.jpg`}
                           width="100%"
                           height={160}
                         />

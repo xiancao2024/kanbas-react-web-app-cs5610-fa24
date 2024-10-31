@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import assignments from "../../Database/assignments.json";
+import  assignments  from "../../Database/assignments.json";
 
 const initialState = {
   assignments: assignments,

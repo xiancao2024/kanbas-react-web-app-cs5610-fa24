@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAssignment, updateAssignment } from "./reducer";
 
-
 export default function AssignmentEditor() {
   const aID = useParams().aid;
   const navigate = useNavigate();

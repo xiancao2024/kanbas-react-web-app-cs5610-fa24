@@ -1,3 +1,4 @@
+/* Reset default margin and padding */
 body {
   margin: 0;
   padding: 0;
@@ -7,37 +8,47 @@ body * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (min-width: 768px) {
-  #wd-kanbas .wd-main-content-offset {
-    padding-left: 140px !important;
-  }
+/* Main Container */
+#wd-kanbas {
+  display: flex; /* Use Flexbox to arrange children horizontally */
+  min-height: 100vh; /* Ensure the container takes the full viewport height */
 }
 
+/* Navigation Bar Styling */
+.KanbasNavigation {
+  width: 250px; /* Fixed width for the navigation bar */
+  background-color: #111; /* Background color for the navigation bar */
+  color: white; /* Text color for the navigation bar */
+  padding-top: 20px; /* Add some padding at the top */
+  flex-shrink: 0; /* Prevent the navigation bar from shrinking */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Main Content Styling */
+.wd-main-content-offset {
+  flex: 1; /* Take up the remaining space */
+  padding: 20px; /* Add padding for content spacing */
+  overflow: auto; /* Add overflow handling if the content is long */
+}
+
+/* Dashboard and Course Styling */
 #wd-dashboard-published,
-#wd-dashboard-enrolled {
-  padding-left: 20px;
-}
-
+#wd-dashboard-enrolled,
 #wd-dashboard-courses {
   padding-left: 20px;
 }
 
-/* Prevent cards from stretching or shrinking */
 .wd-dashboard-course {
-  flex: 0 0 auto;
-  /* Prevent the width from changing */
-  margin: 35px 0;
-  /* Adds 35px spacing above and below the cards */
+  flex: 0 0 auto; /* Prevent the width from changing */
+  margin: 35px 0; /* Add spacing above and below the cards */
 }
 
 .custom-card {
-  width: 270px;
-  /* Set a fixed width between 250 and 270 pixels */
+  width: 270px; /* Fixed width for cards */
 }
 
 .wd-dashboard-course-title {
-  height: 25px;
-  /* Set the desired height for all descriptions */
+  height: 25px; /* Fixed height for course titles */
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -45,20 +56,21 @@ body * {
 }
 
 .wd-dashboard-course-description {
-  height: 70px;
-  /* Set the desired height for all descriptions */
+  height: 70px; /* Fixed height for course descriptions */
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   white-space: normal;
 }
 
+/* Active List Group Item Styling */
 .list-group.wd > .list-group-item.active {
   color: black;
   background-color: white;
   border-left: 3px solid black !important;
 }
 
+/* Button Styling */
 .btn-secondary {
   --bs-btn-color: #000 !important;
   --bs-btn-bg: #c7cdd1 !important;
@@ -74,37 +86,26 @@ body * {
   --bs-list-group-border-color: gray;
 }
 
+/* Lesson and Assignment Styling */
 .wd-lesson {
   border-left: 3px solid green !important;
 }
 
-#wd-modules-controls {
-  padding-right: 20px;
-}
-
-#wd-modules {
-  padding-right: 20px;
-}
-
-#wd-assignments {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
+#wd-modules-controls,
+#wd-modules,
+#wd-assignments,
 #wd-assignment-controls {
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .wd-assignment-link {
-  color: black;
-  /* Set the text color to black */
+  color: black; /* Text color for assignment links */
   text-decoration: none;
 }
 
 .wd-assignment-link:hover {
-  color: black;
-  /* Ensure the link stays black on hover */
+  color: black; /* Link stays black on hover */
   text-decoration: underline;
 }
 

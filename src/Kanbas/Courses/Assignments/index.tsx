@@ -132,51 +132,6 @@ export default function Assignments() {
                   </li>
                 ))}
 
-              {/* <li className="wd-assignment-list-item list-group-item p-4 border-bottom">
-                                <div className="d-flex align-items-center">
-                                    <div className="d-flex align-items-center flex-nowrap me-3">
-                                        <BsGripVertical className="fs-4 text-secondary" />
-                                        <MdOutlineAssignment style={{ color: 'green' }} />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <a className="wd-assignment-link text-dark" href="#/Kanbas/Courses/1234/Assignments/123">
-                                            <b>A2</b>
-                                        </a>
-                                        <div className="text-muted mt-1">
-                                            <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am | <b>Due</b> May 20 at 11:59pm | 100 pts
-                                        </div>
-                                    </div>
-                                    <div className="d-flex align-items-center flex-nowrap">
-                                        <FaCheckCircle style={{ top: "2px" }}
-                                            className="text-success" />
-                                        <FaCircle className="text-white fs-6" />
-                                        <IoEllipsisVertical className="fs-4" />
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li className="wd-assignment-list-item list-group-item p-4 border-bottom">
-                                <div className="d-flex align-items-center">
-                                    <div className="d-flex align-items-center flex-nowrap me-3">
-                                        <BsGripVertical className="fs-4 text-secondary" />
-                                        <MdOutlineAssignment style={{ color: 'green' }} />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <a className="wd-assignment-link text-dark" href="#/Kanbas/Courses/1234/Assignments/123">
-                                            <b>A3</b>
-                                        </a>
-                                        <div className="text-muted mt-1">
-                                            <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am | <b>Due</b> May 27 at 11:59pm | 100 pts
-                                        </div>
-                                    </div>
-                                    <div className="d-flex align-items-center flex-nowrap">
-                                        <FaCheckCircle style={{ top: "2px" }}
-                                            className="text-success" />
-                                        <FaCircle className="text-white fs-6" />
-                                        <IoEllipsisVertical className="fs-4" />
-                                    </div>
-                                </div>
-                            </li> */}
             </ul>
           </li>
         </ul>
