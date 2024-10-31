@@ -1,258 +1,116 @@
 [
-    {
+  {
       "_id": "M101",
       "name": "Introduction to Rocket Propulsion",
       "description": "Basic principles of rocket propulsion and rocket engines.",
       "course": "RS101",
       "lessons": [
-        {
-          "_id": "L101",
-          "name": "History of Rocketry",
-          "description": "A brief history of rocketry and space exploration.",
-          "module": "M101"
-        },
-        {
-          "_id": "L102",
-          "name": "Rocket Propulsion Fundamentals",
-          "description": "Basic principles of rocket propulsion.",
-          "module": "M101"
-        },
-        {
-          "_id": "L103",
-          "name": "Rocket Engine Types",
-          "description": "Overview of different types of rocket engines.",
-          "module": "M101"
-        },
-        {
-          "_id": "L104",
-          "name": "Thrust and Specific Impulse",
-          "description": "Detailed explanation of thrust, specific impulse, and their roles in rocket propulsion.",
-          "module": "M101"
-        }
+          {
+              "_id": "L101",
+              "name": "History of Rocketry",
+              "description": "A brief history of rocketry and space exploration.",
+              "module": "M101"
+          },
+          {
+              "_id": "L102",
+              "name": "Rocket Propulsion Fundamentals",
+              "description": "Basic principles of rocket propulsion.",
+              "module": "M101"
+          },
+          {
+              "_id": "L103",
+              "name": "Rocket Engine Types",
+              "description": "Overview of different types of rocket engines.",
+              "module": "M101"
+          }
       ]
-    },
-    {
+  },
+  {
       "_id": "M102",
       "name": "Fuel and Combustion",
       "description": "Understanding rocket fuel, combustion processes, and efficiency.",
       "course": "RS101",
       "lessons": [
-        {
-          "_id": "L201",
-          "name": "Rocket Fuel",
-          "description": "Overview of different types of rocket fuels.",
-          "module": "M102"
-        },
-        {
-          "_id": "L202",
-          "name": "Combustion Processes",
-          "description": "Understanding combustion processes and efficiency.",
-          "module": "M102"
-        },
-        {
-          "_id": "L203",
-          "name": "Combustion Instability",
-          "description": "Understanding combustion instability and mitigation.",
-          "module": "M102"
-        },
-        {
-          "_id": "L204",
-          "name": "Fuel Mixture Ratios",
-          "description": "Analyzing the optimal fuel mixture ratios for efficient combustion.",
-          "module": "M102"
-        }
+          {
+              "_id": "L201",
+              "name": "Rocket Fuel",
+              "description": "Overview of different types of rocket fuels.",
+              "module": "M102"
+          },
+          {
+              "_id": "L202",
+              "name": "Combustion Processes",
+              "description": "Understanding combustion processes and efficiency.",
+              "module": "M102"
+          },
+          {
+              "_id": "L203",
+              "name": "Combustion Instability",
+              "description": "Understanding combustion instability and mitigation.",
+              "module": "M102"
+          }
       ]
-    },
-    {
+  },
+  {
       "_id": "M103",
       "name": "Nozzle Design",
       "description": "Principles of rocket nozzle design and performance optimization.",
       "course": "RS101",
       "lessons": [
-        {
-          "_id": "L301",
-          "name": "Nozzle Design",
-          "description": "Overview of different types of rocket nozzles.",
-          "module": "M103"
-        },
-        {
-          "_id": "L302",
-          "name": "Nozzle Performance",
-          "description": "Understanding nozzle performance and efficiency.",
-          "module": "M103"
-        },
-        {
-          "_id": "L303",
-          "name": "Nozzle Optimization",
-          "description": "Optimizing nozzle design for specific applications.",
-          "module": "M103"
-        },
-        {
-          "_id": "L304",
-          "name": "Nozzle Cooling Techniques",
-          "description": "Exploring cooling methods to increase nozzle longevity and performance.",
-          "module": "M103"
-        }
+          {
+              "_id": "L301",
+              "name": "Nozzle Design",
+              "description": "Overview of different types of rocket nozzles.",
+              "module": "M103"
+          },
+          {
+              "_id": "L302",
+              "name": "Nozzle Performance",
+              "description": "Understanding nozzle performance and efficiency.",
+              "module": "M103"
+          },
+          {
+              "_id": "L303",
+              "name": "Nozzle Optimization",
+              "description": "Optimizing nozzle design for specific applications.",
+              "module": "M103"
+          }
       ]
-    },
-    {
+  },
+  {
       "_id": "M201",
       "name": "Fundamentals of Aerodynamics",
       "description": "Basic aerodynamic concepts and fluid dynamics principles.",
-      "course": "RS102",
-      "lessons": [
-        {
-          "_id": "L401",
-          "name": "Introduction to Fluid Dynamics",
-          "description": "Basic principles of fluid dynamics and how they apply to aerodynamics.",
-          "module": "M201"
-        },
-        {
-          "_id": "L402",
-          "name": "Lift and Drag Forces",
-          "description": "Understanding the relationship between lift, drag, and airfoil shapes.",
-          "module": "M201"
-        }
-      ]
-    },
-    {
+      "course": "RS102"
+  },
+  {
       "_id": "M202",
       "name": "Subsonic and Supersonic Flow",
       "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
-      "course": "RS102",
-      "lessons": [
-        {
-          "_id": "L501",
-          "name": "Subsonic Flow Characteristics",
-          "description": "Study of fluid behavior at subsonic speeds.",
-          "module": "M202"
-        },
-        {
-          "_id": "L502",
-          "name": "Supersonic Flow Characteristics",
-          "description": "Study of fluid behavior at supersonic speeds and shock waves.",
-          "module": "M202"
-        }
-      ]
-    },
-    {
+      "course": "RS102"
+  },
+  {
       "_id": "M203",
       "name": "Aerodynamic Heating",
       "description": "Study of aerodynamic heating and thermal protection systems.",
-      "course": "RS102",
-      "lessons": [
-        {
-          "_id": "L601",
-          "name": "Thermal Protection Materials",
-          "description": "Overview of materials used to protect spacecraft from high thermal loads.",
-          "module": "M203"
-        },
-        {
-          "_id": "L602",
-          "name": "Heat Transfer Mechanisms",
-          "description": "Understanding heat transfer processes such as conduction, convection, and radiation in aerodynamics.",
-          "module": "M203"
-        }
-      ]
-    },
-    {
+      "course": "RS102"
+  },
+  {
       "_id": "M301",
       "name": "Spacecraft Structural Design",
       "description": "Fundamentals of designing spacecraft structures and materials selection.",
-      "course": "RS103",
-      "lessons": [
-        {
-          "_id": "L701",
-          "name": "Load-Bearing Structures",
-          "description": "Design of primary load-bearing structures in spacecraft.",
-          "module": "M301"
-        },
-        {
-          "_id": "L702",
-          "name": "Material Selection for Spacecraft",
-          "description": "Choosing lightweight, durable materials for spacecraft structures.",
-          "module": "M301"
-        }
-      ]
-    },
-    {
+      "course": "RS103"
+  },
+  {
       "_id": "M302",
       "name": "Orbital Mechanics",
       "description": "Understanding orbital dynamics and mission planning.",
-      "course": "RS103",
-      "lessons": [
-        {
-          "_id": "L801",
-          "name": "Orbital Parameters",
-          "description": "Overview of orbital parameters and their influence on satellite trajectories.",
-          "module": "M302"
-        },
-        {
-          "_id": "L802",
-          "name": "Kepler's Laws of Motion",
-          "description": "Study of Kepler’s Laws and their application to modern orbital mechanics.",
-          "module": "M302"
-        }
-      ]
-    },
-    {
+      "course": "RS103"
+  },
+  {
       "_id": "M303",
       "name": "Spacecraft Systems Engineering",
       "description": "Overview of spacecraft systems and subsystems engineering.",
-      "course": "RS103",
-      "lessons": [
-        {
-          "_id": "L901",
-          "name": "Power Systems for Spacecraft",
-          "description": "Study of power generation, storage, and distribution systems in spacecraft.",
-          "module": "M303"
-        },
-        {
-          "_id": "L902",
-          "name": "Life Support Systems",
-          "description": "Overview of life support systems used in manned space missions.",
-          "module": "M303"
-        }
-      ]
-    },
-    {
-      "_id": "M401",
-      "name": "Satellite Communication Systems",
-      "description": "Principles of satellite communication and signal transmission.",
-      "course": "RS104",
-      "lessons": [
-        {
-          "_id": "L1001",
-          "name": "Signal Propagation in Space",
-          "description": "Understanding how signals propagate in the vacuum of space.",
-          "module": "M401"
-        },
-        {
-          "_id": "L1002",
-          "name": "Communication Satellite Design",
-          "description": "Designing communication systems for satellites and optimizing data transmission.",
-          "module": "M401"
-        }
-      ]
-    },
-    {
-      "_id": "M402",
-      "name": "Satellite Orbits and Navigation",
-      "description": "Detailed study of satellite orbits and navigation systems.",
-      "course": "RS104",
-      "lessons": [
-        {
-          "_id": "L1101",
-          "name": "GNSS and Satellite Navigation",
-          "description": "Global Navigation Satellite Systems (GNSS) and their role in navigation.",
-          "module": "M402"
-        },
-        {
-          "_id": "L1102",
-          "name": "Satellite Orbit Determination",
-          "description": "Methods of determining and maintaining satellite orbits.",
-          "module": "M402"
-        }
-      ]
-    }
+      "course": "RS103"
+  }
 ]
