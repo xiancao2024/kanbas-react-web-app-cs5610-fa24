@@ -20,7 +20,7 @@ export default function Kanbas() {
     startDate: "2023-09-10",
     endDate: "2023-12-15",
     description: "New Description",
-    image: "https://github.com/xiancao2024/my-restaurant-app/blob/main/src/images/drinks.jpg",
+    image: "./images/test.jpg",
   });
   const addNewCourse = (courseID: any) => {
     setCourses([...courses, { ...course, _id: courseID }]);

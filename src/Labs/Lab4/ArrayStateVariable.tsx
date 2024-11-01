@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap for styling
 import { useSelector } from "react-redux";
 
 export default function ArrayStateVariable() {
@@ -17,7 +16,10 @@ export default function ArrayStateVariable() {
   };
 
   return (
-    <div id="wd-array-state-variables" className="container" style={{ maxWidth: '500px', paddingLeft: '0', marginLeft: '0' }}>
+    <div
+      id="wd-array-state-variables"
+      className="container"
+      style={{ maxWidth: "500px", paddingLeft: "0", marginLeft: "0" }}>
       <h2>Array State Variable</h2>
       <h3> {message} </h3>
 
@@ -29,12 +31,17 @@ export default function ArrayStateVariable() {
       {/* List of array items */}
       <ul className="list-group">
         {array.map((item, index) => (
-          <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+          <li
+            key={index}
+            className="list-group-item d-flex justify-content-between align-items-center">
             {/* Display the item */}
             {item}
 
             {/* Delete Button */}
-            <button className="btn btn-danger" onClick={() => deleteElement(index)} id="wd-delete-element-click">
+            <button
+              className="btn btn-danger"
+              onClick={() => deleteElement(index)}
+              id="wd-delete-element-click">
               Delete
             </button>
           </li>
@@ -45,4 +52,3 @@ export default function ArrayStateVariable() {
     </div>
   );
 }
-

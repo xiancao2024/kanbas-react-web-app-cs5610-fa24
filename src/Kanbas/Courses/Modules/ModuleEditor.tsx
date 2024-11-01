@@ -54,4 +54,3 @@ export default function ModuleEditor({
     </div>
   );
 }
-export {};

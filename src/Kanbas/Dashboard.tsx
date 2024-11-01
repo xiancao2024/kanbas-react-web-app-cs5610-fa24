@@ -1,4 +1,7 @@
+
 import { Link } from "react-router-dom";
+import * as db from "./Database";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addEnrollment, deleteEnrollment } from "./reducer";
 import { useState } from "react";
@@ -122,7 +125,7 @@ export default function Dashboard({
                         className="wd-dashboard-course-link text-decoration-none text-dark"
                       >
                         <img
-                          src={`/images/${course._id}.jpg`}
+                          src={`${course.image}`}
                           width="100%"
                           height={160}
                         />
