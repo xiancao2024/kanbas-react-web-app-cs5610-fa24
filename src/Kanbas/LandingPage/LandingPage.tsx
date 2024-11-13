@@ -16,6 +16,7 @@ export default function LandingPage() {
                 <li><Link to="/Labs/Lab2" target="_blank">Lab 2</Link></li>
                 <li><Link to="/Labs/Lab3" target="_blank">Lab 3</Link></li>
                 <li><Link to="/Labs/Lab4" target="_blank">Lab 4</Link></li>
+                <li><Link to="/Labs/Lab4" target="_blank">Lab 5</Link></li>
             </ul>
 
             {/* Kanbas Application */}
