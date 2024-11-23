@@ -2,6 +2,8 @@ import EnvironmentVariables from "./EnvironmentVariables";
 import PathParameters from "./PathParameters";
 import QueryParameters from "./QueryParameters";
 import WorkingWithObjects from "./WorkingWithObjects";
+import WorkingWithModules from "./WorkingWithModules";
+import WorkingWithArrays from "./WorkingWithArrays";
 export default function Lab5() {
     return (
       <div id="wd-lab5">
@@ -16,6 +18,8 @@ export default function Lab5() {
         <PathParameters />
         <QueryParameters />
         <WorkingWithObjects />
+        <WorkingWithModules />
+        <WorkingWithArrays />
       </div>
     );
   }
