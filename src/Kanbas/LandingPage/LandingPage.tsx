@@ -16,7 +16,7 @@ export default function LandingPage() {
                 <li><Link to="/Labs/Lab2" target="_blank">Lab 2</Link></li>
                 <li><Link to="/Labs/Lab3" target="_blank">Lab 3</Link></li>
                 <li><Link to="/Labs/Lab4" target="_blank">Lab 4</Link></li>
-                <li><Link to="/Labs/Lab4" target="_blank">Lab 5</Link></li>
+                <li><Link to="/Labs/Lab5" target="_blank">Lab 5</Link></li>
             </ul>
 
             {/* Kanbas Application */}
@@ -28,7 +28,9 @@ export default function LandingPage() {
             {/* Source Code Repositories */}
             <h2>Source Code Repositories</h2>
             <ul>
-                <li><a href="https://github.com/xiancao2024/kanbas-react-web-app-cs5610-fa24" target="_blank">A1 Repo</a></li>
+                <li><a href="https://github.com/xiancao2024/kanbas-react-web-app-cs5610-fa24" target="_blank">Frontend Repo</a></li>
+                <li><a href="https://github.com/xiancao2024/kanbas-node-server-app-cs5610-fa24" target="_blank">Backend Repo</a></li>
+            
             </ul>
         </div>
     );

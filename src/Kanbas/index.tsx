@@ -4,15 +4,31 @@ import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
 import courseData from "./Database/courses.json"; // Import courses.json correctly
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import store from "./store";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import ProtectedRoute from "./Account/ProtectedRoute";
-import './styles.css'; // Adjust the path based on where your CSS file is located
-
+import "./styles.css"; // Adjust the path based on where your CSS file is located
+import Session from "./Account/Session";
+import * as userClient from "./Account/client";
+import * as courseClient from "./Courses/client";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>(courseData); // Use the correct imported courses data
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const fetchCourses = async () => {
+    let courses = [];
+    try {
+      courses = await userClient.findMyCourses();
+    } catch (error) {
+      console.error(error);
+    }
+    setCourses(courses);
+  };
+  useEffect(() => {
+    fetchCourses();
+  }, [currentUser]);
+
   const [course, setCourse] = useState<any>({
     _id: "1234",
     name: "New Course",
@@ -22,62 +38,58 @@ export default function Kanbas() {
     description: "New Description",
     image: "./images/test.jpg",
   });
-  const addNewCourse = (courseID: any) => {
-    setCourses([...courses, { ...course, _id: courseID }]);
+
+  const addNewCourse = async () => {
+    const newCourse = await userClient.createCourse(course);
+    setCourses([...courses, newCourse]);
   };
-  const deleteCourse = (courseId: any) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
+
+  const deleteCourse = async (courseId: string) => {
+    const status = await courseClient.deleteCourse(courseId);
   };
-  const updateCourse = () => {
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return course;
-        } else {
-          return c;
-        }
-      })
-    );
-  };
+
+  const updateCourse = async () => {
+    await courseClient.updateCourse(course);
+  }
 
   return (
     <Provider store={store}>
-      <div id="wd-kanbas">
-        <KanbasNavigation />
-        <div
-          className="wd-main-content-offset p-3"
-           >
-          <Routes>
-            <Route path="/" element={<Navigate to="Dashboard" />} />
-            <Route path="/Account/*" element={<Account />} />
-            <Route
-              path="/Dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard
-                    courses={courses}
-                    course={course}
-                    setCourse={setCourse}
-                    addNewCourse={addNewCourse}
-                    deleteCourse={deleteCourse}
-                    updateCourse={updateCourse}
-                  />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/Courses/:cid/*"
-              element={
-                <ProtectedRoute>
-                  <Courses courses={courses} />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/Calendar" element={<h1>Calendar</h1>} />
-            <Route path="/Inbox" element={<h1>Inbox</h1>} />
-          </Routes>
+      <Session>
+        <div id="wd-kanbas">
+          <KanbasNavigation />
+          <div className="wd-main-content-offset p-3">
+            <Routes>
+              <Route path="/" element={<Navigate to="Dashboard" />} />
+              <Route path="/Account/*" element={<Account />} />
+              <Route
+                path="/Dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard
+                      courses={courses}
+                      course={course}
+                      setCourse={setCourse}
+                      addNewCourse={addNewCourse}
+                      deleteCourse={deleteCourse}
+                      updateCourse={updateCourse}
+                    />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/Courses/:cid/*"
+                element={
+                  <ProtectedRoute>
+                    <Courses courses={courses} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/Calendar" element={<h1>Calendar</h1>} />
+              <Route path="/Inbox" element={<h1>Inbox</h1>} />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </Session>
     </Provider>
   );
 }

@@ -1,7 +1,4 @@
-
 import { Link } from "react-router-dom";
-import * as db from "./Database";
-
 import { useDispatch, useSelector } from "react-redux";
 import { addEnrollment, deleteEnrollment } from "./reducer";
 import { useState } from "react";
@@ -52,16 +49,14 @@ export default function Dashboard({
                     course: _id,
                   })
                 );
-              }}
-            >
+              }}>
               {" "}
               Add{" "}
             </button>
             <button
               className="btn btn-warning float-end me-2"
               onClick={updateCourse}
-              id="wd-update-course-click"
-            >
+              id="wd-update-course-click">
               Update
             </button>
           </h5>
@@ -84,8 +79,7 @@ export default function Dashboard({
         <button
           className="btn btn-primary float-end"
           id="wd-add-new-course-click"
-          onClick={() => setShowAll((showAll) => !showAll)}
-        >
+          onClick={() => setShowAll((showAll) => !showAll)}>
           {" "}
           Enrollments{" "}
         </button>
@@ -116,14 +110,12 @@ export default function Dashboard({
                 <div
                   className="wd-dashboard-course col"
                   style={{ width: "300px" }}
-                  key={course._id}
-                >
+                  key={course._id}>
                   <div className="card rounded-3 overflow-hidden">
                     <div>
                       <Link
                         to={`/Kanbas/Courses/${course._id}/Home`}
-                        className="wd-dashboard-course-link text-decoration-none text-dark"
-                      >
+                        className="wd-dashboard-course-link text-decoration-none text-dark">
                         <img
                           src={`${course.image}`}
                           width="100%"
@@ -135,8 +127,7 @@ export default function Dashboard({
                           </h5>
                           <p
                             className="wd-dashboard-course-description card-text overflow-y-hidden"
-                            style={{ maxHeight: 100 }}
-                          >
+                            style={{ maxHeight: 100 }}>
                             {course.description}
                           </p>
                         </div>
@@ -156,8 +147,7 @@ export default function Dashboard({
                           );
                         }}
                         className="btn btn-danger float-end me-2 mb-2"
-                        id="wd-delete-course-click"
-                      >
+                        id="wd-delete-course-click">
                         Delete
                       </button>
                       <button
@@ -166,8 +156,7 @@ export default function Dashboard({
                           event.preventDefault();
                           setCourse(course);
                         }}
-                        className="btn btn-warning float-end me-2 mb-2"
-                      >
+                        className="btn btn-warning float-end me-2 mb-2">
                         Edit
                       </button>
                     </div>
@@ -178,24 +167,15 @@ export default function Dashboard({
             !showAll
             ? // Enrolled courses only when showAll is false
               courses
-                .filter((course) =>
-                  enrollments.some(
-                    (enrollment: any) =>
-                      enrollment.user === currentUser._id &&
-                      enrollment.course === course._id
-                  )
-                )
                 .map((course) => (
                   <div
                     className="wd-dashboard-course col"
                     style={{ width: "300px" }}
-                    key={course._id}
-                  >
+                    key={course._id}>
                     <div className="card rounded-3 overflow-hidden">
                       <Link
                         to={`/Kanbas/Courses/${course._id}/Home`}
-                        className="wd-dashboard-course-link text-decoration-none text-dark"
-                      >
+                        className="wd-dashboard-course-link text-decoration-none text-dark">
                         <img
                           src={`${course.image}`}
                           width="100%"
@@ -207,8 +187,7 @@ export default function Dashboard({
                           </h5>
                           <p
                             className="wd-dashboard-course-description card-text overflow-y-hidden"
-                            style={{ maxHeight: 100 }}
-                          >
+                            style={{ maxHeight: 100 }}>
                             {course.description}
                           </p>
                           <button className="btn btn-primary"> Go </button>
@@ -222,16 +201,14 @@ export default function Dashboard({
                 <div
                   className="wd-dashboard-course col"
                   style={{ width: "300px" }}
-                  key={course._id}
-                >
+                  key={course._id}>
                   <div className="card rounded-3 overflow-hidden">
                     <div>
                       {isEnrolled(course._id) ? (
                         // Render as Link when enrolled
                         <Link
                           to={`/Kanbas/Courses/${course._id}/Home`}
-                          className="wd-dashboard-course-link text-decoration-none text-dark"
-                        >
+                          className="wd-dashboard-course-link text-decoration-none text-dark">
                           <img
                             src={`${course.image}`}
                             width="100%"
@@ -243,8 +220,7 @@ export default function Dashboard({
                             </h5>
                             <p
                               className="wd-dashboard-course-description card-text overflow-y-hidden"
-                              style={{ maxHeight: 100 }}
-                            >
+                              style={{ maxHeight: 100 }}>
                               {course.description}
                             </p>
                           </div>
@@ -263,8 +239,7 @@ export default function Dashboard({
                             </h5>
                             <p
                               className="wd-dashboard-course-description card-text overflow-y-hidden"
-                              style={{ maxHeight: 100 }}
-                            >
+                              style={{ maxHeight: 100 }}>
                               {course.description}
                             </p>
                           </div>
@@ -283,8 +258,7 @@ export default function Dashboard({
                                 course: course._id,
                               })
                             )
-                          }
-                        >
+                          }>
                           Unenroll
                         </button>
                       ) : (
@@ -298,8 +272,7 @@ export default function Dashboard({
                                 course: course._id,
                               })
                             )
-                          }
-                        >
+                          }>
                           Enroll
                         </button>
                       )}
