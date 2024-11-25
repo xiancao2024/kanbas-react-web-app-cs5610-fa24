@@ -3,13 +3,12 @@ import Account from "./Account";
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
-import courseData from "./Database/courses.json"; // Import courses.json correctly
 import { useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import ProtectedRoute from "./Account/ProtectedRoute";
 import './styles.css'; // Adjust the path based on where your CSS file is located
-
+import courseData from "./Database/courses.json"; // Import courses.json correctly
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>(courseData); // Use the correct imported courses data
