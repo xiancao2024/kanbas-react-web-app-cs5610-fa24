@@ -1,12 +1,11 @@
 import { Navigate, Route, Routes, useLocation, useParams } from "react-router";
-
+import CoursesNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
-import CoursesNavigation from "./Navigation";
 
 export default function Courses({ courses }: { courses: any[] }) {
   const { cid } = useParams();

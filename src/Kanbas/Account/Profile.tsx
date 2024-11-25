@@ -9,6 +9,10 @@ export default function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const updateProfile = async () => {
+    const updatedProfile = await client.updateUser(profile);
+    dispatch(setCurrentUser(updatedProfile));
+  };
   const fetchProfile = () => {
     if (!currentUser) return navigate("/Kanbas/Account/Signin");
     setProfile(currentUser);
@@ -18,15 +22,10 @@ export default function Profile() {
     dispatch(setCurrentUser(null));
     navigate("/Kanbas/Account/Signin");
   };
-
-  const updateProfile = async () => {
-    const updatedProfile = await client.updateUser(profile);
-    dispatch(setCurrentUser(updatedProfile));
-  };
-
   useEffect(() => {
     fetchProfile();
   }, []);
+
   return (
     <div id="wd-profile-screen" className="d-flex">
       <div className="p-3" style={{ maxWidth: "400px", width: "100%" }}>
@@ -81,26 +80,28 @@ export default function Profile() {
               }
             />
             <select
+              defaultValue={currentUser?.role || "USER"}
               onChange={(e) => setProfile({ ...profile, role: e.target.value })}
               className="form-control mb-2"
-              id="wd-role">
-              <option value="USER">User</option>{" "}
-              <option value="ADMIN">Admin</option>
-              <option value="FACULTY">Faculty</option>{" "}
-              <option value="STUDENT">Student</option>
+              id="wd-role"
+            >
+              <option value="USER">USER</option>
+              <option value="ADMIN">ADMIN</option>
+              <option value="FACULTY">FACULTY</option>
+              <option value="STUDENT">STUDENT</option>
             </select>
-
             <button
               onClick={updateProfile}
-              className="btn btn-primary w-100 mb-2">
+              className="btn btn-primary w-100 mb-2"
+            >
               {" "}
               Update{" "}
             </button>
-            
             <button
               onClick={signout}
               className="btn btn-danger w-100 mb-2"
-              id="wd-signout-btn">
+              id="wd-signout-btn"
+            >
               Sign out
             </button>
           </div>

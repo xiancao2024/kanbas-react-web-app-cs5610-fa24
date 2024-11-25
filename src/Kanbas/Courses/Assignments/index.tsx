@@ -8,8 +8,10 @@ import { FaCheckCircle, FaCircle, FaTrash } from "react-icons/fa";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
-import { deleteAssignment } from "./reducer";
-import { useState } from "react";
+import { deleteAssignment, setAssignments } from "./reducer";
+import { useEffect, useState } from "react";
+import * as coursesClient from "../client";
+import * as assignmentsClient from "./client";
 
 export default function Assignments() {
   const { cid } = useParams();
@@ -20,12 +22,23 @@ export default function Assignments() {
     null
   );
 
+  const fetchAssignments = async () => {
+    const assignments = await coursesClient.findAssignmentsForCourse(
+      cid as string
+    );
+    dispatch(setAssignments(assignments));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
   const handleDeleteClick = (id: string) => {
     setAssignmentToDelete(id);
   };
 
-  const confirmDelete = () => {
+  const confirmDelete = async (assignmentId: string) => {
     if (assignmentToDelete) {
+      await assignmentsClient.deleteAssignment(assignmentId);
       dispatch(deleteAssignment(assignmentToDelete));
       setAssignmentToDelete(null);
     }
@@ -64,7 +77,6 @@ export default function Assignments() {
 
             <ul className="wd-assignment-list list-group list-group-flush">
               {assignments
-                .filter((assign: any) => assign.course === cid)
                 .map((assign: any) => (
                   <li
                     key={assign._id}
@@ -107,7 +119,7 @@ export default function Assignments() {
                                 Are you sure you want to remove this assignment?
                               </p>
                               <button
-                                onClick={confirmDelete}
+                                onClick={() => confirmDelete(assign._id)}
                                 className="btn btn-danger me-2"
                               >
                                 Yes
@@ -132,6 +144,51 @@ export default function Assignments() {
                   </li>
                 ))}
 
+              {/* <li className="wd-assignment-list-item list-group-item p-4 border-bottom">
+                                <div className="d-flex align-items-center">
+                                    <div className="d-flex align-items-center flex-nowrap me-3">
+                                        <BsGripVertical className="fs-4 text-secondary" />
+                                        <MdOutlineAssignment style={{ color: 'green' }} />
+                                    </div>
+                                    <div className="flex-grow-1">
+                                        <a className="wd-assignment-link text-dark" href="#/Kanbas/Courses/1234/Assignments/123">
+                                            <b>A2</b>
+                                        </a>
+                                        <div className="text-muted mt-1">
+                                            <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am | <b>Due</b> May 20 at 11:59pm | 100 pts
+                                        </div>
+                                    </div>
+                                    <div className="d-flex align-items-center flex-nowrap">
+                                        <FaCheckCircle style={{ top: "2px" }}
+                                            className="text-success" />
+                                        <FaCircle className="text-white fs-6" />
+                                        <IoEllipsisVertical className="fs-4" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li className="wd-assignment-list-item list-group-item p-4 border-bottom">
+                                <div className="d-flex align-items-center">
+                                    <div className="d-flex align-items-center flex-nowrap me-3">
+                                        <BsGripVertical className="fs-4 text-secondary" />
+                                        <MdOutlineAssignment style={{ color: 'green' }} />
+                                    </div>
+                                    <div className="flex-grow-1">
+                                        <a className="wd-assignment-link text-dark" href="#/Kanbas/Courses/1234/Assignments/123">
+                                            <b>A3</b>
+                                        </a>
+                                        <div className="text-muted mt-1">
+                                            <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am | <b>Due</b> May 27 at 11:59pm | 100 pts
+                                        </div>
+                                    </div>
+                                    <div className="d-flex align-items-center flex-nowrap">
+                                        <FaCheckCircle style={{ top: "2px" }}
+                                            className="text-success" />
+                                        <FaCircle className="text-white fs-6" />
+                                        <IoEllipsisVertical className="fs-4" />
+                                    </div>
+                                </div>
+                            </li> */}
             </ul>
           </li>
         </ul>
