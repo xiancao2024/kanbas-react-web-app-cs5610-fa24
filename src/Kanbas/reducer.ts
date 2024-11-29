@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import enrollments  from "./Database/enrollments.json";
+import { enrollments } from "./Database";
 
 const initialState = {
   enrollments: enrollments,

@@ -1,14 +1,14 @@
 import { Navigate, Route, Routes } from "react-router";
 import Account from "./Account";
-import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
 import { useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import ProtectedRoute from "./Account/ProtectedRoute";
-import './styles.css'; // Adjust the path based on where your CSS file is located
+import "./styles.css"; // Adjust the path based on where your CSS file is located
 import courseData from "./Database/courses.json"; // Import courses.json correctly
+import Dashboard from "./Dashboard";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>(courseData); // Use the correct imported courses data
@@ -43,9 +43,7 @@ export default function Kanbas() {
     <Provider store={store}>
       <div id="wd-kanbas">
         <KanbasNavigation />
-        <div
-          className="wd-main-content-offset p-3"
-           >
+        <div className="wd-main-content-offset p-3">
           <Routes>
             <Route path="/" element={<Navigate to="Dashboard" />} />
             <Route path="/Account/*" element={<Account />} />
@@ -60,6 +58,9 @@ export default function Kanbas() {
                     addNewCourse={addNewCourse}
                     deleteCourse={deleteCourse}
                     updateCourse={updateCourse}
+                    setCourses={function (course: any): void {
+                      throw new Error("Function not implemented.");
+                    }}
                   />
                 </ProtectedRoute>
               }
