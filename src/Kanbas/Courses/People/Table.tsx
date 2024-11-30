@@ -28,10 +28,10 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
             //     enrollments.some((enrollment) => enrollment.user === usr._id && enrollment.course === cid)
             // )
             .map((user: any) => (
-              <tr key={user._id}>
+              <tr key={user.username}>
                 <td className="wd-full-name text-nowrap">
                   <Link
-                    to={`/Kanbas/Account/Users/${user._id}`}
+                    to={`/Kanbas/Account/Users/${user.username}`}
                     className="text-decoration-none"
                   >
                     <FaUserCircle className="me-2 fs-1 text-secondary" />

@@ -47,8 +47,7 @@ export default function PeopleDetails() {
     <div className="wd-people-details position-fixed top-0 end-0 bottom-0 bg-white p-4 shadow w-25">
       <button
         onClick={() => navigate(-1)}
-        className="btn position-fixed end-0 top-0 wd-close-details"
-      >
+        className="btn position-fixed end-0 top-0 wd-close-details">
         <IoCloseSharp className="fs-1" />{" "}
       </button>
       <div className="text-center mt-2">
@@ -103,8 +102,7 @@ export default function PeopleDetails() {
         <select
           className="form-select w-50 mt-2"
           value={role}
-          onChange={(e) => setRole(e.target.value)}
-        >
+          onChange={(e) => setRole(e.target.value)}>
           {roleOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -124,14 +122,12 @@ export default function PeopleDetails() {
       <hr />
       <button
         onClick={() => deleteUser(uid)}
-        className="btn btn-danger float-end wd-delete"
-      >
+        className="btn btn-danger float-end wd-delete">
         Delete
       </button>
       <button
         onClick={() => navigate(-1)}
-        className="btn btn-secondary float-start float-end me-2 wd-cancel"
-      >
+        className="btn btn-secondary float-start float-end me-2 wd-cancel">
         Cancel
       </button>
     </div>
