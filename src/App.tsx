@@ -1,18 +1,21 @@
+
 import React from "react";
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
-import Labs from "./Labs";
+import logo from "./logo.svg";
+// import './App.css';
 import Kanbas from "./Kanbas";
+import Labs from "./Labs";
+import { HashRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import store from "./Kanbas/store";
+import { Provider } from "react-redux";
 import LandingPage from "./Kanbas/LandingPage/LandingPage";
-import "./App.css";
-
-
 
 function App() {
   return (
     <HashRouter>
-      <div>
-        <Routes>
-          {/* Redirect "/" to "/LandingPage" */}
+      <Provider store={store}>
+        <div>
+          <Routes>
+             {/* Redirect "/" to "/LandingPage" */}
           <Route path="/" element={<Navigate to="/LandingPage" />} />
           <Route
             path="/Kanbas"
@@ -24,9 +27,9 @@ function App() {
           {/* Labs and Kanbas components */}
           <Route path="/Labs/*" element={<Labs />} />
           <Route path="/Kanbas/*" element={<Kanbas />} />
-        
-        </Routes>
-      </div>
+          </Routes>
+        </div>
+      </Provider>
     </HashRouter>
   );
 }
