@@ -10,6 +10,8 @@ import Users from "./Users";
 export default function Account() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
 
+
+  
   return (
     <div id="wd-account-screen">
       <div className="d-flex">
