@@ -35,53 +35,7 @@ export default function Dashboard({
 }) {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const dispatch = useDispatch();
-  // const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
-
-  // type Course = {
-  //   _id: string;
-  //   name: string;
-  //   description: string;
-  //   image: string;
-  //   enrolled: boolean;
-  // };
-  // const [allCourses, setAllCourses] = useState<Course[]>([]);
-  // type Enrollment = {
-  //   _id: string;
-  //   user: string;
-  //   course: string;
-  // };
-  // const [allEnrollments, setAllEnrollments] = useState<Enrollment[]>([]);
-
-  // const isEnrolled = (courseID: string) => {
-  //   return allEnrollments.some(
-  //     (enrollment: any) =>
-  //       enrollment.user === currentUser._id && enrollment.course === courseID
-  //   );
-  // };
-  // useEffect(() => {
-  //   const fetchAllCourses = async () => {
-  //     const courses = await coursesClient.fetchAllCourses();
-  //     setAllCourses(courses);
-  //   };
-  //   const fetchAllEnrollments = async () => {
-  //     const { data } = await axios.get(`${ENROLLMENTS_API}`);
-  //     const enrollments = data;
-  //     setAllEnrollments(enrollments);
-  //   };
-
-  //   fetchAllCourses();
-  //   fetchAllEnrollments();
-  // }, [allCourses, allEnrollments]);
-
-  // const enrollCourse = async (courseId: any) => {
-  //   await userClient.enrollCourse(courseId);
-  //   console.log(`Enrolled in ${courseId}`);
-  // };
-
-  // const unenrollCourse = async (courseId: any) => {
-  //   await userClient.unenrollCourse(courseId);
-  // };
-
+  
   return (
     <div id="wd-dashboard" className="container-fluid">
       <h1 id="wd-dashboard-title">
@@ -143,7 +97,7 @@ export default function Dashboard({
         <button
           className="btn btn-primary float-end"
           id="wd-add-new-course-click"
-          // onClick={() => setShowAll((showAll) => !showAll)}
+          //onClick={() => setShowAll((showAll) => !showAll)}
         >
           {" "}
           Enrollments{" "}

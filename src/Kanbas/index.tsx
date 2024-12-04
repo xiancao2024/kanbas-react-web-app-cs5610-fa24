@@ -18,12 +18,12 @@ export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>([]);
   const [course, setCourse] = useState<any>({
     _id: "1234",
-    name: "New Course",
+    name: "New Course1",
     number: "New Number",
     startDate: "2023-09-10",
     endDate: "2023-12-15",
     description: "New Description",
-    image: "/images/reactjs.jpg",
+    image: "./images/test.jpg",
   });
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const [enrolling, setEnrolling] = useState<boolean>(false);
@@ -46,41 +46,54 @@ export default function Kanbas() {
   };
 
   const findCoursesForUser = async () => {
-    try {
-      const courses = await userClient.findCoursesForUser(currentUser._id);
-      setCourses(courses);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const fetchCourses = async () => {
-    try {
-      const allCourses = await courseClient.fetchAllCourses();
-      const enrolledCourses = await userClient.findCoursesForUser(
-        currentUser._id
-      );
-      const courses = allCourses.map((course: any) => {
-        if (enrolledCourses.find((c: any) => c._id === course._id)) {
-          return { ...course, enrolled: true };
-        } else {
-          return course;
-        }
-      });
-      setCourses(courses);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    console.log("Fetching courses for user:", currentUser._id);
+    const courses = await userClient.findCoursesForUser(currentUser._id);
+    console.log("Fetched courses:", courses);
+    setCourses(courses);
+  } catch (error) {
+    console.error("Error finding courses for user:", error);
+  }
+};
+
+const fetchCourses = async () => {
+  try {
+    console.log("Fetching all courses...");
+    const allCourses = await courseClient.fetchAllCourses();
+    console.log("All courses:", allCourses);
+    const enrolledCourses = await userClient.findCoursesForUser(
+      currentUser._id
+    );
+    console.log("Enrolled courses:", enrolledCourses);
+    const courses = allCourses.map((course: any) => {
+      if (enrolledCourses.find((c: any) => c._id === course._id)) {
+        return { ...course, enrolled: true };
+      } else {
+        return course;
+      }
+    });
+    console.log("Processed courses:", courses);
+    setCourses(courses);
+  } catch (error) {
+    console.error("Error fetching courses:", error);
+  }
+};
+
 
   useEffect(() => {
+    console.log("Current user:", currentUser);
+    console.log("Enrolling:", enrolling);
     if (currentUser && currentUser._id) {
       if (enrolling) {
+        console.log("Fetching courses...");
         fetchCourses();
       } else {
+        console.log("Finding courses for user...");
         findCoursesForUser();
       }
     }
   }, [currentUser, enrolling]);
+  
 
   const addNewCourse = async () => {
     const newCourse = await courseClient.createCourse(course);
