@@ -38,6 +38,8 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
                     <span className="wd-first-name">{user.firstName}</span>{" "}
                     <span className="wd-last-name">{user.lastName}</span>
                   </Link>
+
+                  
                 ) : (
                   // Case 2: Non-ADMIN - Plain text
                   <>
